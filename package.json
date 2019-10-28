@@ -27,5 +27,7 @@
     "chokidar": "^3.2.3"
   },
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "carbonldp": "^5.2.0"
+  }
 }
