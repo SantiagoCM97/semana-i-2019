@@ -14,7 +14,7 @@ export namespace Components {
     /**
     * The first name
     */
-    'data': DataModel;
+    'data': any;
   }
 }
 
@@ -36,7 +36,7 @@ declare namespace LocalJSX {
     /**
     * The first name
     */
-    'data'?: DataModel;
+    'data'?: any;
   }
 
   interface IntrinsicElements {

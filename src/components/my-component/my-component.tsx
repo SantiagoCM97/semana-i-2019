@@ -9,7 +9,7 @@ export class MyComponent {
   /**
    * The first name
    */
-  @Prop() data: DataModel = { items: []};
+  @Prop() data: any = { items: []};
 
   render() {
 
@@ -17,8 +17,4 @@ export class MyComponent {
 
     return items.map( item => <div>{item.name}</div>);
   }
-}
-
-class DataModel {
-  items: Array<any>
 }
