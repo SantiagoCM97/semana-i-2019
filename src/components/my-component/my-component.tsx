@@ -9,9 +9,7 @@ export class MyComponent {
   /**
    * The first name
    */
-  @Prop() data: any = { items: []};
-  @Prop() myTitle: string = "";
-
+  @Prop() data: any = { keyItems: []};
 
 
   @Method() async printConsoleLog(){
