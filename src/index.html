@@ -16,7 +16,7 @@
   <script>
     customElements.whenDefined("my-component").then(()=>{
       document.querySelector("#myComponent").componentOnReady().then((componentInstance) => {
-        componentInstance.data = {items: [{name: "1"}, {name: "2"}]}
+        componentInstance.data = {items: [{name: "1"}, {name: "2"}]};
       });
     });
 

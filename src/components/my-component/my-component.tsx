@@ -9,11 +9,11 @@ export class MyComponent {
   /**
    * The first name
    */
-  @Prop() data: DataModel;
+  @Prop() data: DataModel = { items: []};
 
   render() {
 
-    const items = (this.data || {}).items || [];
+    const items = this.data.items;
 
     return items.map( item => <div>{item.name}</div>);
   }
