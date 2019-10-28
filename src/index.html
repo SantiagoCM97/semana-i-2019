@@ -11,7 +11,15 @@
 </head>
 <body>
 
-  <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+  <my-component id="myComponent"></my-component>
 
+  <script>
+    customElements.whenDefined("my-component").then(()=>{
+      document.querySelector("#myComponent").componentOnReady().then((componentInstance) => {
+        componentInstance.data = {items: [{name: "1"}, {name: "2"}]}
+      });
+    });
+
+  </script>
 </body>
 </html>
