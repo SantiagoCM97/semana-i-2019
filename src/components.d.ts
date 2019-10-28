@@ -15,6 +15,8 @@ export namespace Components {
     * The first name
     */
     'data': any;
+    'myTitle': string;
+    'printConsoleLog': () => Promise<void>;
   }
 }
 
@@ -37,6 +39,8 @@ declare namespace LocalJSX {
     * The first name
     */
     'data'?: any;
+    'myTitle'?: string;
+    'onMyCustomEvent'?: (event: CustomEvent<any>) => void;
   }
 
   interface IntrinsicElements {

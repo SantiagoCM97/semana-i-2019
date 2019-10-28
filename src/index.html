@@ -11,12 +11,14 @@
 </head>
 <body>
 
-  <my-component id="myComponent"></my-component>
+  <my-component id="myComponent" my-title="Hello world!"></my-component>
 
   <script>
     customElements.whenDefined("my-component").then(()=>{
       document.querySelector("#myComponent").componentOnReady().then((componentInstance) => {
         componentInstance.data = {items: [{name: "1"}, {name: "2"}]};
+        componentInstance.addEventListener("myCustomEvent", (ev) => {console.log(ev.detail)});
+        componentInstance.printConsoleLog();
       });
     });
 
