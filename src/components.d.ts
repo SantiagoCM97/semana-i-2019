@@ -15,8 +15,13 @@ export namespace Components {
     * The first name
     */
     'data': any;
-    'myTitle': string;
     'printConsoleLog': () => Promise<void>;
+  }
+  interface TagCloud {
+    /**
+    * The first name
+    */
+    'data': any;
   }
 }
 
@@ -28,8 +33,15 @@ declare global {
     prototype: HTMLMyComponentElement;
     new (): HTMLMyComponentElement;
   };
+
+  interface HTMLTagCloudElement extends Components.TagCloud, HTMLStencilElement {}
+  var HTMLTagCloudElement: {
+    prototype: HTMLTagCloudElement;
+    new (): HTMLTagCloudElement;
+  };
   interface HTMLElementTagNameMap {
     'my-component': HTMLMyComponentElement;
+    'tag-cloud': HTMLTagCloudElement;
   }
 }
 
@@ -39,12 +51,18 @@ declare namespace LocalJSX {
     * The first name
     */
     'data'?: any;
-    'myTitle'?: string;
     'onMyCustomEvent'?: (event: CustomEvent<any>) => void;
+  }
+  interface TagCloud {
+    /**
+    * The first name
+    */
+    'data'?: any;
   }
 
   interface IntrinsicElements {
     'my-component': MyComponent;
+    'tag-cloud': TagCloud;
   }
 }
 
@@ -55,6 +73,7 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+      'tag-cloud': LocalJSX.TagCloud & JSXBase.HTMLAttributes<HTMLTagCloudElement>;
     }
   }
 }

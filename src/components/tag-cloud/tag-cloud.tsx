@@ -1,38 +1,25 @@
-import { Component, Prop, h,Event ,EventEmitter, Method } from '@stencil/core';
+import { Component, Prop, h, Method, State, Element } from '@stencil/core';
 
 @Component({
-  tag: 'tag-cloud',
-  styleUrl: 'tag-cloud.css',
-  shadow: true
+    tag: 'tag-cloud',
+    styleUrl: 'tag-cloud.css',
+    shadow: true
 })
 export class TagCloud {
     /**
    * The first name
    */
-  @Prop() data: any = { keyItems: []};
+@Prop() data: any = { keyItems: []};
 
 
-  @Method() async printConsoleLog(){
-    console.log("method");
-  }
-
-  @Event() myCustomEvent: EventEmitter;
-
-  private myEvent(item){
-    this.myCustomEvent.emit(item);
-  }
-
-
-  render() {
-
-    const items = this.data.keyItems;
-
-    return (
-      <div class="my-tag-cloud">
-            {items.map((item)=> (<a href={item.uri} data-weight={item.weight}>{item.keyword}</a>))}
-      </div>
+render() {
+    
+    //const items = this.data.keyItems;
+    const items = [{keyword: "ninja",  uri: "https://www.facebook.com", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15}];  
+    return ( 
+        <ul>
+            {items.map((item)=> (<li><a href={item.uri} data-weight={item.weight}>{item.keyword}</a></li>))}
+        </ul>
     );
-    );
-  }
-
+}
 }
