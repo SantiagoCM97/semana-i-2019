@@ -1,4 +1,5 @@
 import {Component, Prop, h,Event ,EventEmitter, Method} from '@stencil/core';
+import SearchService from "../../main";
 
 @Component({
   tag: 'my-component',
@@ -32,6 +33,7 @@ export class MyComponent {
       <div class="my-class">
         <h1>{this.myTitle}</h1>
         {items.map((item)=> (<div onClick={() => this.myEvent(item)}>{item.name}</div>))}
+        {SearchService.query()}
       </div>
     );
   }
