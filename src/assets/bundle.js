@@ -4150,7 +4150,7 @@ eval("(function (global, factory) {\n   true ? module.exports = factory() :\n  u
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _querycall__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./querycall */ \"./src/assets/querycall.js\");\n\r\nObject(_querycall__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n//# sourceURL=webpack:///./src/assets/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _querycall__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./querycall */ \"./src/assets/querycall.js\");\n\nObject(_querycall__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n//# sourceURL=webpack:///./src/assets/main.js?");
 
 /***/ }),
 
@@ -4162,7 +4162,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _que
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return init; });\n/* harmony import */ var carbonldp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! carbonldp */ \"./node_modules/carbonldp/.esm5/index.js\");\n\r\n\r\nfunction init() {\r\n    const carbonldp = new carbonldp__WEBPACK_IMPORTED_MODULE_0__[\"CarbonLDP\"](\"https://data-itesm.lab.base22.com/\");\r\n\r\n    // Executing a \"raw\" SPARQL query\r\n\r\n    carbonldp.documents.$executeSELECTQuery(\r\n            `\r\n            SELECT ?keyword ?label (COUNT(?label) AS ?count)\r\n            WHERE {\r\n                <https://data-itesm.lab.base22.com/movies/> <http://www.w3.org/ns/ldp#contains> ?movie .\r\n                ?movie <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#Keyword> ?keyword .\r\n                ?keyword <http://www.w3.org/2000/01/rdf-schema#label> ?label .\r\n            }\r\n            GROUP BY ?keyword ?label\r\n            ORDER BY DESC(?count)\r\n            LIMIT 200\r\n            `\r\n        ).then((response) => {\r\n        console.log(\"Raw SPARQL query result\");\r\n        console.log(response);\r\n        const keywordDiv = document.querySelector(\"#keyword\");\r\n        response.bindings.forEach((keyword) => {\r\n            const p = document.createElement(\"p\");\r\n            p.appendChild(document.createTextNode(keyword.label + \" \"));\r\n            p.appendChild(document.createTextNode(keyword.count));\r\n            keywordDiv.appendChild(p);\r\n        });\r\n    })\r\n}\n\n//# sourceURL=webpack:///./src/assets/querycall.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return init; });\n/* harmony import */ var carbonldp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! carbonldp */ \"./node_modules/carbonldp/.esm5/index.js\");\n\n\nfunction init() {\n    \n}\n\n//# sourceURL=webpack:///./src/assets/querycall.js?");
 
 /***/ }),
 
