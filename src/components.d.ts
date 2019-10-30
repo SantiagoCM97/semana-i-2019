@@ -15,10 +15,14 @@ export namespace Components {
     * The first name
     */
     'data': any;
-    'myTitle': string;
     'printConsoleLog': () => Promise<void>;
   }
-  interface TagCloud {}
+  interface TagCloud {
+    /**
+    * The first name
+    */
+    'data': any;
+  }
 }
 
 declare global {
@@ -47,10 +51,16 @@ declare namespace LocalJSX {
     * The first name
     */
     'data'?: any;
-    'myTitle'?: string;
     'onMyCustomEvent'?: (event: CustomEvent<any>) => void;
   }
-  interface TagCloud {}
+
+  interface TagCloud {
+    /**
+    * The first name
+    */
+    'data'?: any;
+  }
+
 
   interface IntrinsicElements {
     'my-component': MyComponent;

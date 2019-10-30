@@ -7,11 +7,30 @@
 
 ## Properties
 
-| Property | Attribute | Description     | Type     | Default     |
-| -------- | --------- | --------------- | -------- | ----------- |
-| `first`  | `first`   | The first name  | `string` | `undefined` |
-| `last`   | `last`    | The last name   | `string` | `undefined` |
-| `middle` | `middle`  | The middle name | `string` | `undefined` |
+| Property  | Attribute  | Description    | Type     | Default        |
+| --------- | ---------- | -------------- | -------- | -------------- |
+| `data`    | `data`     | The first name | `any`    | `{ items: []}` |
+| `myTitle` | `my-title` |                | `string` | `""`           |
+
+
+## Events
+
+| Event           | Description | Type               |
+| --------------- | ----------- | ------------------ |
+| `myCustomEvent` |             | `CustomEvent<any>` |
+
+
+## Methods
+
+### `printConsoleLog() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ----------------------------------------------
