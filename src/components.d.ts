@@ -50,7 +50,9 @@ declare namespace LocalJSX {
     'data'?: any;
     'onMyCustomEvent'?: (event: CustomEvent<any>) => void;
   }
-  interface TagCloud {}
+  interface TagCloud {
+    'onMyCustomEvent'?: (event: CustomEvent<any>) => void;
+  }
 
   interface IntrinsicElements {
     'my-component': MyComponent;

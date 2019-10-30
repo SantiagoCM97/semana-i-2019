@@ -3,10 +3,17 @@
 }
 
 body {
-  background: #08454a;
+  background: white;
   font-family: 'Open Sans', sans-serif;
 }
 
-ul {
-    list-style: none;
+
+#myCanvasContainer {
+  background: #FFF;
+  width: 1000px;
+  height: 300px;
+  border-radius: 10px;
+}
+li {
+  display: none;
 }

@@ -1,6 +1,5 @@
 function startTagCloud() {
-    try {
-        TagCanvas.Start('myCanvas', {
+        TagCanvas.Start('myCanvas','tags', {
             textFont: 'Roboto',
             textColour: '#ff970c',
             reverse: true,
@@ -19,10 +18,4 @@ function startTagCloud() {
             fadeIn: 800,
             maxSpeed: 0.05
         });
-        console.log("Entra Aqi");
-    } catch(e) {
-        console.log("Catch");
-        
-        // something went wrong, hide the canvas container
-    }
 };

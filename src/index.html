@@ -7,23 +7,9 @@
 
         <script type="module" src="/build/semana-i-2019.esm.js"></script>
         <script nomodule src="/build/semana-i-2019.js"></script>
-        <script src="./assets/tagcanvas.js" ></script>
-        <script src="assets/tagcloudstart.js"></script>
-
     </head>
     <body>
         <tag-cloud id="my-tag-cloud"></tag-cloud>
-        <script>
-            customElements.whenDefined("tag-cloud").then(()=>{
-                document.querySelector("#my-tag-cloud").componentOnReady().then((componentInstance) => {
-                    componentInstance.fetchTags().then(() => startTagCloud());
-                });
-            });
-
-        </script>
-        <div id="keyword">
-
-        </div>
         <script src="assets/bundle.js"></script>
     </body>
 </html>
