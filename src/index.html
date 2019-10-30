@@ -4,24 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Stencil Component Starter</title>
+
   <script type="module" src="/build/semana-i-2019.esm.js"></script>
   <script nomodule src="/build/semana-i-2019.js"></script>
-  <script src="assets/tagcanvas.min.js"></script>
-  <script src="assets/tagcloudstart.js"></script>
+
 </head>
 <body>
-  
-  <tag-cloud id="myTagCloud"></tag-cloud>
+
+  <my-component id="myComponent"></my-component>
 
   <script>
-    customElements.whenDefined("tag-cloud").then(()=>{
-      document.querySelector("#myTagCloud").componentOnReady().then((componentInstance) => {
-        console.log("Se encontro el tagcloud");
+    customElements.whenDefined("my-component").then(()=>{
+      document.querySelector("#myComponent").componentOnReady().then((componentInstance) => {
+        componentInstance.addEventListener("myCustomEvent", (ev) => {console.log(ev.detail)});
+        componentInstance.printConsoleLog();
       });
     });
 
   </script>
-  
-  
+  <div id="keyword">
+
+  </div>
+  <script src="assets/bundle.js"></script>
 </body>
 </html>
