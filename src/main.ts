@@ -1,12 +1,13 @@
 import {CarbonLDP} from "carbonldp";
 const carbonldp = new CarbonLDP("https://data-itesm.lab.base22.com/");
+const varLimit = 21;
 
 //${varLimit}
 
 export default class SearchService {
     static async query() {
         carbonldp.documents.$executeSELECTQuery(
-            `
+          `
             SELECT ?keyword ?label (COUNT(?label) AS ?count)
             WHERE {
                 <https://data-itesm.lab.base22.com/movies/> <http://www.w3.org/ns/ldp#contains> ?movie .
@@ -15,8 +16,8 @@ export default class SearchService {
             }
             GROUP BY ?keyword ?label
             ORDER BY DESC(?count)
-            LIMIT 200
-            `
+            LIMIT ${ varLimit }`
+
         ).then((response) => {
             console.log(response);
         });
