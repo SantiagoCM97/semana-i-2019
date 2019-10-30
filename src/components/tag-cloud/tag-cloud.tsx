@@ -1,4 +1,4 @@
-import { Component, Prop, h, Method, State, Element } from '@stencil/core';
+import { Component, Prop, h} from '@stencil/core';
 
 @Component({
     tag: 'tag-cloud',
@@ -17,8 +17,8 @@ render() {
     //const items = this.data.keyItems;
     const items = [{keyword: "ninja",  uri: "https://www.facebook.com", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15},{keyword: "ninja",  uri: "", weight: 15}];  
     return ( 
-        <ul>
-            {items.map((item)=> (<li><a href={item.uri} data-weight={item.weight}>{item.keyword}</a></li>))}
+        <ul id="tags">
+            {items.map((item)=> (<li><a href="" data-weight={item.weight}>{item.keyword}</a></li>))}
         </ul>
     );
 }

@@ -1,6 +1,6 @@
 window.onload = function() {
     try {
-        TagCanvas.Start('myCanvas','myTagCloud',{
+        TagCanvas.Start('myCanvas', {
             textFont: 'Roboto',
             textColour: '#ff970c',
             outlineColour: '#08454a',
@@ -21,8 +21,6 @@ window.onload = function() {
             maxSpeed: 0.05
         });
         console.log("Entra Aqi");
-
-
     } catch(e) {
         console.log(e);
         
