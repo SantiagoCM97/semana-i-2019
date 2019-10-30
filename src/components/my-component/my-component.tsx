@@ -9,9 +9,7 @@ export class MyComponent {
   /**
    * The first name
    */
-  @Prop() data: any = { items: []};
-  @Prop() myTitle: string = "";
-
+  @Prop() data: any = { keyItems: []};
 
 
   @Method() async printConsoleLog(){
@@ -30,7 +28,6 @@ export class MyComponent {
 
     return (
       <div class="my-class">
-        <h1>{this.myTitle}</h1>
         {items.map((item)=> (<div onClick={() => this.myEvent(item)}>{item.name}</div>))}
       </div>
     );

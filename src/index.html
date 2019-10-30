@@ -16,6 +16,7 @@
   <script>
     customElements.whenDefined("my-component").then(()=>{
       document.querySelector("#myComponent").componentOnReady().then((componentInstance) => {
+        componentInstance.data = {items: [{name: "1"}, {name: "2"}]};
         componentInstance.addEventListener("myCustomEvent", (ev) => {console.log(ev.detail)});
         componentInstance.printConsoleLog();
       });
@@ -25,6 +26,6 @@
   <div id="keyword">
 
   </div>
-  <script src="assets/bundle.js"></script>
+  <script src="assets/main.js"></script>
 </body>
 </html>
