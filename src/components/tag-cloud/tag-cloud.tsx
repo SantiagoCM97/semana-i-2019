@@ -11,10 +11,10 @@ export class TagCloud {
     carbonldp = new CarbonLDP("https://data-itesm.lab.base22.com/");
     addCloud() {
         TagCanvas.Start('myCanvas','tags', {
-                textFont: 'Roboto',
-                textColour: '#ff970c',
-                reverse: true,
-                depth: 2,
+            textFont: 'Arial',
+            textColour: '#ff970c',
+            reverse: true,
+            depth: 2,
                 interval: 20, // espacio entre palabras.
                 minBrightness: 0.1,
                 pulsateTo: 0.2,
@@ -27,14 +27,19 @@ export class TagCloud {
                 weight: true,
                 weightFrom: 'data-weight',
                 fadeIn: 800,
-                maxSpeed: 0.05
-        });
+                maxSpeed: 0.05,
+                zoom: 1.5
+            });
     }
 
+    capitalizeFirstLetter(string) {
+        var str = string
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
     @Prop() info = [];
     @Method() async assignWeights() {
         var tempArr = [];
-    
+
         // Insert the values from each result into an array
         this.info.forEach((item : any) => {
             if(item && item.label && item.count)
@@ -82,28 +87,31 @@ export class TagCloud {
     componentDidUpdate(){
         if (this.info.length) {
           this.addCloud();
-        }
-    }
+      }
+  }
 
-    @Event() myCustomEvent: EventEmitter;
-    private myEvent(item){
-        this.myCustomEvent.emit(item);
-    }
+  @Event() myCustomEvent: EventEmitter;
+  private myEvent(item){
+    this.myCustomEvent.emit(item);
+}
 
-  render() {
+render() {
     if (this.info.length > 0) {
         this.assignWeights();
+
         return (
             <div>
-                <div id="myCanvasContainer">
-                    <canvas width="1000" height="300" id="myCanvas">
-                    </canvas>
-                </div>
-                <div id='tags'>
-                        {this.info.map((item)=> (<li><a href="#" onClick={() => item.myEvent(item)}data-weight={item.weight}>{item.keyword}</a></li>))}
-                </div>
+            <div id="myCanvasContainer">
+            <canvas width="1000" height="300" id="myCanvas">
+            </canvas>
+            </div>
+            <div id='tags'>
+            {this.info.map((item)=> (<li><a href="#" onClick={() => item.myEvent(item)}data-weight={item.weight}>
+                {this.capitalizeFirstLetter(item.keyword)}
+                </a></li>))}
+            </div>
             </div>
             );
-        }
     }
+}
 }
