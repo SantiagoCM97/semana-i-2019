@@ -18,7 +18,14 @@
                     window.queryLib.default().then(response => {
                         componentInstance.info = response;
                     });
-                    componentInstance.addEventListener("myCustomEvent", (ev) => {console.log(ev.detail)});
+                    componentInstance.addEventListener("myCustomEvent", (ev) => {
+                        // Run getMovies for the ID of the keyword clicked
+                        window.queryLib.getMovies(ev.detail.kwID).then(response => {
+                            console.log("Movies for keyword: " + ev.detail.keyword);
+                            // Display movieTitles for the ID in the console
+                            response.bindings.forEach((item) => console.log(item.movieTitles));
+                        })
+                    });
                 });
             });
         </script>

@@ -8,7 +8,9 @@ import '../../assets/tagcanvas.js'
     shadow: false
 })
 export class TagCloud {    
+
     carbonldp = new CarbonLDP("https://data-itesm.lab.base22.com/");
+
     addCloud() {
         TagCanvas.Start('myCanvas','tags', {
                 textFont: 'Roboto',
@@ -32,43 +34,46 @@ export class TagCloud {
     }
 
     @Prop() info = [];
+
     @Method() async assignWeights() {
         var tempArr = [];
     
-        // Insert the values from each result into an array
+        // Insert the values from each object into an array
         this.info.forEach((item : any) => {
-            if(item && item.label && item.count)
+            if (item && item.label && item.count) {
                 tempArr.push({
                     keyword: item.label || "",
-                    weight: item.count || ""
+                    weight: item.count || "",
+                    kwID: item.id || ""
                 })
+            }
         });
 
         // Assign data-weights based on a tier depending on array position
         var lastPos = 0;
-        // Tier 1 (top 5%)= data-weight of 20
+        // Tier 1 (top 5%)
         while (tempArr.length * 0.05 > lastPos) {
-            tempArr[lastPos].weight = 20;
-            lastPos++;
-        }
-        // Tier 2 (next 20%) = data-weight of 18
-        while (tempArr.length * 0.2 > lastPos) {
-            tempArr[lastPos].weight = 18;
-            lastPos++;
-        }
-        // Tier 3 (next 50%) = data-weight of 15
-        while (tempArr.length * 0.5 > lastPos) {
             tempArr[lastPos].weight = 15;
             lastPos++;
         }
-        // Tier 4 (next 20%)= data-weight of 13
-        while (tempArr.length * 0.7 > lastPos) {
+        // Tier 2 (next 20%)
+        while (tempArr.length * 0.2 > lastPos) {
+            tempArr[lastPos].weight = 14;
+            lastPos++;
+        }
+        // Tier 3 (next 50%)
+        while (tempArr.length * 0.5 > lastPos) {
             tempArr[lastPos].weight = 13;
             lastPos++;
         }
-        // Tier 5 (bottom 5%)= data-weight of 10
+        // Tier 4 (next 20%)
+        while (tempArr.length * 0.7 > lastPos) {
+            tempArr[lastPos].weight = 12;
+            lastPos++;
+        }
+        // Tier 5 (bottom 5%)
         while (tempArr.length > lastPos) {
-            tempArr[lastPos].weight = 10;
+            tempArr[lastPos].weight = 11;
             lastPos++;
         }
 
@@ -80,19 +85,24 @@ export class TagCloud {
     }
 
     componentDidUpdate(){
+        // Add TagCanvas
         if (this.info.length) {
-          this.addCloud();
+            this.addCloud();
         }
     }
 
     @Event() myCustomEvent: EventEmitter;
-    private myEvent(item){
+    
+    private myEvent(item) {
+        // Return item to myCustomEvent on index.html
         this.myCustomEvent.emit(item);
     }
 
-  render() {
-    if (this.info.length > 0) {
-        this.assignWeights();
+    render() {
+        // Once the information has been obtained, assign their weights
+        if (this.info.length > 0) {
+            this.assignWeights();
+        }
         return (
             <div>
                 <div id="myCanvasContainer">
@@ -100,10 +110,15 @@ export class TagCloud {
                     </canvas>
                 </div>
                 <div id='tags'>
-                        {this.info.map((item)=> (<li><a href="#" onClick={() => item.myEvent(item)}data-weight={item.weight}>{item.keyword}</a></li>))}
+                    {this.info.map((item)=> (
+                        <li>
+                            <a href="#" onClick={() => this.myEvent(item)} data-weight={item.weight}>
+                                {item.keyword}
+                            </a>
+                        </li>))
+                    }
                 </div>
             </div>
-            );
-        }
+        );
     }
 }
