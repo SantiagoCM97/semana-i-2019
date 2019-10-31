@@ -1,9 +1,7 @@
-window.onload = function() {
-    try {
-        TagCanvas.Start('myCanvas','myTagCloud',{
+function startTagCloud() {
+        TagCanvas.Start('myCanvas','tags', {
             textFont: 'Roboto',
             textColour: '#ff970c',
-            outlineColour: '#08454a',
             reverse: true,
             depth: 2,
             interval: 20, // espacio entre palabras.
@@ -20,12 +18,4 @@ window.onload = function() {
             fadeIn: 800,
             maxSpeed: 0.05
         });
-        console.log("Entra Aqi");
-
-
-    } catch(e) {
-        console.log(e);
-        
-        // something went wrong, hide the canvas container
-    }
 };

@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <title>Stencil Component Starter</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+        <title>Stencil Component Starter</title>
 
-  <script type="module" src="/build/semana-i-2019.esm.js"></script>
-  <script nomodule src="/build/semana-i-2019.js"></script>
+        <script type="module" src="/build/semana-i-2019.esm.js"></script>
+        <script nomodule src="/build/semana-i-2019.js"></script>
+        <script src="assets/bundle.js"></script>
 
-</head>
-<body>
-
-  <my-component id="myComponent" my-title="Hello world!"></my-component>
-
-  <script>
-    customElements.whenDefined("my-component").then(()=>{
-      document.querySelector("#myComponent").componentOnReady().then((componentInstance) => {
-        componentInstance.data = {items: [{name: "1"}, {name: "2"}]};
-        componentInstance.addEventListener("myCustomEvent", (ev) => {console.log(ev.detail)});
-        componentInstance.printConsoleLog();
-      });
-    });
-
-  </script>
-  <div id="keyword">
-
-  </div>
-  <script src="assets/main.js"></script>
-</body>
+    </head>
+    <body>
+        <tag-cloud id="my-tag-cloud"></tag-cloud>
+        <script>
+            customElements.whenDefined("tag-cloud").then(()=>{
+                document.querySelector("#my-tag-cloud").componentOnReady().then((componentInstance) => {
+                    window.queryLib.default().then(response => {
+                        componentInstance.info = response;
+                    });
+                    componentInstance.addEventListener("myCustomEvent", (ev) => {console.log(ev.detail)});
+                });
+            });
+        </script>
+    </body>
 </html>

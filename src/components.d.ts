@@ -18,10 +18,8 @@ export namespace Components {
     'printConsoleLog': () => Promise<void>;
   }
   interface TagCloud {
-    /**
-    * The first name
-    */
-    'data': any;
+    'assignWeights': () => Promise<void>;
+    'info': any[];
   }
 }
 
@@ -53,14 +51,10 @@ declare namespace LocalJSX {
     'data'?: any;
     'onMyCustomEvent'?: (event: CustomEvent<any>) => void;
   }
-
   interface TagCloud {
-    /**
-    * The first name
-    */
-    'data'?: any;
+    'info'?: any[];
+    'onMyCustomEvent'?: (event: CustomEvent<any>) => void;
   }
-
 
   interface IntrinsicElements {
     'my-component': MyComponent;
