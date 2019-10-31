@@ -18,7 +18,8 @@ export namespace Components {
     'printConsoleLog': () => Promise<void>;
   }
   interface TagCloud {
-    'fetchTags': () => Promise<void>;
+    'assignWeights': () => Promise<void>;
+    'info': any[];
   }
 }
 
@@ -51,6 +52,7 @@ declare namespace LocalJSX {
     'onMyCustomEvent'?: (event: CustomEvent<any>) => void;
   }
   interface TagCloud {
+    'info'?: any[];
     'onMyCustomEvent'?: (event: CustomEvent<any>) => void;
   }
 

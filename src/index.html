@@ -7,9 +7,20 @@
 
         <script type="module" src="/build/semana-i-2019.esm.js"></script>
         <script nomodule src="/build/semana-i-2019.js"></script>
+        <script src="assets/bundle.js"></script>
+
     </head>
     <body>
         <tag-cloud id="my-tag-cloud"></tag-cloud>
-        <script src="assets/bundle.js"></script>
+        <script>
+            customElements.whenDefined("tag-cloud").then(()=>{
+                document.querySelector("#my-tag-cloud").componentOnReady().then((componentInstance) => {
+                    window.queryLib.default().then(response => {
+                        componentInstance.info = response;
+                    });
+                    componentInstance.addEventListener("myCustomEvent", (ev) => {console.log(ev.detail)});
+                });
+            });
+        </script>
     </body>
 </html>
