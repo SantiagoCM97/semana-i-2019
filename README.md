@@ -23,4 +23,4 @@ npm start
 <br>
 
 ### Clicking on a tag will return movies with that tag on the console
-<img src="./img/console.png"></img>
+<img src="./img/console.PNG"></img>
