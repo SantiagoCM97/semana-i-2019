@@ -64,17 +64,17 @@ export class TagCloud {
             lastPos++;
         }
         // Tier 2 (next 20%)
-        while (tempArr.length * 0.2 > lastPos) {
+        while (tempArr.length * 0.25 > lastPos) {
             tempArr[lastPos].weight = 14;
             lastPos++;
         }
         // Tier 3 (next 50%)
-        while (tempArr.length * 0.5 > lastPos) {
+        while (tempArr.length * 0.75 > lastPos) {
             tempArr[lastPos].weight = 13;
             lastPos++;
         }
         // Tier 4 (next 20%)
-        while (tempArr.length * 0.7 > lastPos) {
+        while (tempArr.length * 0.95 > lastPos) {
             tempArr[lastPos].weight = 12;
             lastPos++;
         }
