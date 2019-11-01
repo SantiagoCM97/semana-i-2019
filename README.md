@@ -11,7 +11,9 @@ Tag Cloud Web Component built using:
 <br>
 To run:
 
-``` npm start ``` 
+``` 
+npm start 
+``` 
 
 <br>
 
